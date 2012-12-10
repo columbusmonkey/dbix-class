@@ -4589,6 +4589,7 @@ supported:
   [ $name => $val ] === [ { dbic_colname => $name }, $val ]
   [ \$dt  => $val ] === [ { sqlt_datatype => $dt }, $val ]
   [ undef,   $val ] === [ {}, $val ]
+  $val              === [ {}, $val ]
 
 =head1 AUTHOR AND CONTRIBUTORS
 
