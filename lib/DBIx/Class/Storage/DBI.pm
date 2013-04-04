@@ -87,17 +87,22 @@ sub _determine_supports_join_optimizer { 1 };
 # _determine_supports_X which obv. needs a correct driver as well
 my @rdbms_specific_methods = qw/
   sqlt_type
+
   sql_maker
+  cursor_class
+
   build_datetime_parser
   datetime_parser_type
 
   txn_begin
+
   insert
   insert_bulk
   update
   delete
   select
   select_single
+
   with_deferred_fk_checks
 
   get_use_dbms_capability
@@ -123,6 +128,8 @@ for my $meth (@rdbms_specific_methods) {
       ! $_[0]->_driver_determined
         and
       ! $_[0]->{_in_determine_driver}
+        and
+      $_[0]->_dbi_connect_info
     ) {
       $_[0]->_determine_driver;
 
