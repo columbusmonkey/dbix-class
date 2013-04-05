@@ -422,11 +422,7 @@ it can be accomplished with C<DBIx::Class> when necessary by resorting to
 literal SQL:
 
   $rs->search(
-    \[ 'YEAR(date_of_birth) = ?',
-      [
-        { sqlt_datatype => 'number' }, 1979
-      ]
-    ]
+    \[ 'YEAR(date_of_birth) = ?', 1979 ]
   );
 
   # Equivalent SQL:
@@ -437,11 +433,7 @@ you have to wrap the search arguments in an -and arrayref:
 
   $rs->search({ -and => [
     name => 'Bob',
-    \[ 'YEAR(date_of_birth) = ?',
-      [
-        { sqlt_datatype => 'number' }, 1979
-      ]
-    ]
+    \[ 'YEAR(date_of_birth) = ?', 1979 ]
   ]});
 
   # Equivalent SQL:
