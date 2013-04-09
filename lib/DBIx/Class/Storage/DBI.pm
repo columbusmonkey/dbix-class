@@ -86,6 +86,7 @@ sub _determine_supports_join_optimizer { 1 };
 # _determine_supports_X which obv. needs a correct driver as well
 my @rdbms_specific_methods = qw/
   sqlt_type
+  deployment_statements
 
   sql_maker
   cursor_class
